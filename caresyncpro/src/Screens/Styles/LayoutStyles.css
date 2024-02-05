@@ -1,0 +1,37 @@
+/* Layout.css */
+
+.navbar {
+    background-color: #222;
+    overflow: hidden;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+nav li {
+    float: left;
+    width: 25%;
+    font-variant-caps: all-petite-caps;
+    font-size: 200%;
+}
+
+nav li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+nav li a:hover {
+    background-color: #555;
+}
+
+nav li a.active {
+    background-color: #4caf50;
+}
