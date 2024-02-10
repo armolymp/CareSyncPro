@@ -1,8 +1,10 @@
 package com.example.healthcaremanagement.controller;
 
 import com.example.healthcaremanagement.entity.Doctor;
+import com.example.healthcaremanagement.entity.Patients;
 import com.example.healthcaremanagement.pojos.DoctorRequest;
 import com.example.healthcaremanagement.service.DoctorService;
+import com.example.healthcaremanagement.service.PatientService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -12,10 +14,12 @@ import java.util.List;
 public class MainController {
 
     private final DoctorService doctorService;
+    private final PatientService patientService;
 
     @Autowired
-    public MainController(DoctorService doctorService) {
+    public MainController(DoctorService doctorService, PatientService patientService) {
         this.doctorService = doctorService;
+        this.patientService = patientService;
     }
 
     @GetMapping("/test")
@@ -26,6 +30,11 @@ public class MainController {
     @GetMapping("/all")
     public List<Doctor> all(){
         return doctorService.getAllDoctors();
+    }
+
+    @GetMapping("/allPatients")
+    public List<Patients> allPatients(){
+        return patientService.getAllPatients();
     }
 
     @PostMapping("/add")

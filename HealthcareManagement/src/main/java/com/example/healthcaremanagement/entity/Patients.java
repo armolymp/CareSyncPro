@@ -1,8 +1,10 @@
 package com.example.healthcaremanagement.entity;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
+
 import java.math.BigDecimal;
 
+@Entity
 public class Patients {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -18,16 +20,18 @@ public class Patients {
     @Column(name = "gender", length = 10)
     private String gender;
 
+    @Column(name = "phone_number")
+    private Integer phone;
+
     @Column(name = "symptoms", columnDefinition = "TEXT")
     private String symptoms;
+
+    @Column(name = "drugs")
+    private String drugs;
 
     @ManyToOne
     @JoinColumn(name = "doctor_id", referencedColumnName = "doctor_id")
     private Doctor doctor;
-
-    @ManyToOne
-    @JoinColumn(name = "drug_id", referencedColumnName = "drug_id")
-    private Drugs drug;
 
     @Column(name = "charge_amount", precision = 10, scale = 2)
     private BigDecimal chargeAmount;
@@ -80,12 +84,12 @@ public class Patients {
         this.doctor = doctor;
     }
 
-    public Drugs getDrug() {
-        return drug;
+    public String getDrug() {
+        return drugs;
     }
 
     public void setDrug(Drugs drug) {
-        this.drug = drug;
+        this.drugs = String.valueOf(drug);
     }
 
     public BigDecimal getChargeAmount() {
