@@ -65,11 +65,11 @@ const Doctors = () => {
                     </thead>
                     <tbody>
                     {doctors.map(doctor => (
-                        <tr key={doctor.id}>
-                            <Td>{doctor.id}</Td>
+                        <tr key={doctor.doctorId}>
+                            <Td>{doctor.doctorId}</Td>
                             <Td>{doctor.name}</Td>
                             <Td>{doctor.email}</Td>
-                            <Td>{doctor.speciality}</Td>
+                            <Td>{doctor.specialty}</Td>
                         </tr>
                     ))}
                     </tbody>
