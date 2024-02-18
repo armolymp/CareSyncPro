@@ -47,6 +47,16 @@ public class MainController {
         }
     }
 
+    @PostMapping("/addPatient")
+    public String addPatient(@RequestBody Patients patient){
+        try {
+            Patients newPatient = patientService.save(patient);
+            return "S1000";
+        } catch (Exception e){
+            return "E1000";
+        }
+    }
+
     @PostMapping("/login")
     public String loginDoctor(@RequestBody DoctorRequest loginRequest) {
         try {

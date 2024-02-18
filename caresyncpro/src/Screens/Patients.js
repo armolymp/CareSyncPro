@@ -37,7 +37,7 @@ const Patients = () => {
 
     useEffect(() => {
         // Make a network call to the Spring Boot backend to get doctors
-        axios.get('http://127.0.0.1:5000/all')
+        axios.get('http://127.0.0.1:5000/allPatients')
             .then(response => {
                 setPatients(response.data);
                 setLoading(false);
@@ -70,16 +70,16 @@ const Patients = () => {
                     </thead>
                     <tbody>
                     {patients.map(patient => (
-                        <tr key={patient.patient_id}>
-                            <Td>{patient.patient_id}</Td>
+                        <tr key={patient.patientId}>
+                            <Td>{patient.patientId}</Td>
                             <Td>{patient.name}</Td>
                             <Td>{patient.gender}</Td>
                             <Td>{patient.age}</Td>
-                            <Td>{patient.phone_number}</Td>
+                            <Td>{patient.phone}</Td>
                             <Td>{patient.symptoms}</Td>
-                            <Td>{patient.doctor}</Td>
-                            <Td>{patient.drugs}</Td>
-                            <Td>{patient.charge_amount}</Td>
+                            <Td>{patient.doctor.name}</Td>
+                            <Td>{patient.drug}</Td>
+                            <Td>{patient.chargeAmount}</Td>
                         </tr>
                     ))}
                     </tbody>

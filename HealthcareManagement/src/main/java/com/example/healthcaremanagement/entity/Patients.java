@@ -56,6 +56,14 @@ public class Patients {
         return age;
     }
 
+    public Integer getPhone() {
+        return phone;
+    }
+
+    public void setPhone(Integer phone) {
+        this.phone = phone;
+    }
+
     public void setAge(Integer age) {
         this.age = age;
     }
